@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Store Management</title>
+    <link href="/styles/home.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('partials/navbar') %>
+
+    <!-- Banner Section -->
+    <section class="banner" id="home">
+        <h1>Welcome to MedManage</h1>
+        <p>Your one-stop solution for managing medical store data efficiently and effectively.</p>
+        <a href="/data" class="btn">Manage Data</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-header">
+            <h2>Our Features</h2>
+            <p>Discover the various features that make MedManage the best choice for medical store management.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-box">
+                <h3>Medical Store</h3>
+                <p>Manage medicines, stock, and pricing with ease.</p>
+                <a href="/medicalStore" class="feature-link">Learn More</a>
+            </div>
+            <div class="feature-box">
+                <h3>Employee Management</h3>
+                <p>Track employee details, job titles, and salaries.</p>
+                <a href="/employee" class="feature-link">Learn More</a>
+            </div>
+            <div class="feature-box">
+                <h3>Member Records</h3>
+                <p>Maintain membership details, start and end dates, and contact information.</p>
+                <a href="/membersInfo" class="feature-link">Learn More</a>
+            </div>
+            <div class="feature-box">
+                <h3>Billing Information</h3>
+                <p>Generate and manage customer bills effortlessly.</p>
+                <a href="/bills" class="feature-link">Learn More</a>
+            </div>
+            <div class="feature-box">
+                <h3>Owner Details</h3>
+                <p>Access owner contact details and other important information.</p>
+                <a href="/owner" class="feature-link">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
+   
+</body>
+</html>

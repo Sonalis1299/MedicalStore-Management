@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Manage Members</title>
+    <link href="/styles/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="container">
+        <h1>Manage Members</h1>
+        <form action="/membersInfo" method="POST">
+            <label for="memberID">Member ID</label>
+            <input type="text" id="memberID" name="memberID" required>
+            
+            <label for="membershipID">Membership ID</label>
+            <input type="text" id="membershipID" name="membershipID" required>
+            
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" name="startDate" required>
+            
+            <label for="endDate">End Date</label>
+            <input type="date" id="endDate" name="endDate" required>
+            
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" id="contactNumber" name="contactNumber" required>
+            
+            <button type="submit">Add Member</button>
+        </form>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

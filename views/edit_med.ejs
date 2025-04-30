@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update form</title>
+    <link href="/styles/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="container">
+        <h1>Edit the details</h1>
+        <form id="medicalStoreForm" action="/final-edit" method="POST">
+            <input type="hidden" name="medicineID" value="<%= medicine.medicineID %>">
+        
+            <label for="medicineCode">Medicine Code</label>
+            <input type="text" id="medicineCode" name="medicineCode" value="<%= medicine.medicineCode %>" required>
+        
+            <label for="medicineName">Medicine Name</label>
+            <input type="text" id="medicineName" name="medicineName" value="<%= medicine.medicineName %>" required>
+        
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" value="<%= medicine.quantity %>" required>
+        
+            <label for="medicineType">Medicine Type</label>
+            <input type="text" id="medicineType" name="medicineType" value="<%= medicine.medicineType %>" required>
+        
+            <label for="manufactureDate">Manufacture Date</label>
+            <input type="date" id="manufactureDate" name="manufactureDate" value="<%= medicine.manufactureDate.toISOString().slice(0, 10) %>" required>
+        
+            <label for="expiryDate">Expiry Date</label>
+            <input type="date" id="expiryDate" name="expiryDate" value="<%= medicine.expiryDate.toISOString().slice(0, 10) %>" required>
+        
+            <label for="manufacturer">Manufactured By</label>
+            <input type="text" id="manufacturer" name="manufacturer" value="<%= medicine.manufacturer %>" required>
+        
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" step="0.01" value="<%= medicine.price %>" required>
+        
+            <label for="ownerID">Owner ID</label>
+            <input type="number" id="ownerID" name="ownerID" value="<%= medicine.ownerID %>" required>
+        
+            <label for="employeeID">Employee ID</label>
+            <input type="number" id="employeeID" name="employeeID" value="<%= medicine.employeeID %>" required>
+        
+            <label for="mID">Member ID</label>
+            <input type="number" id="mID" name="mID" value="<%= medicine.memberID %>" required>
+        
+            <label for="customerID">Customer ID</label>
+            <input type="number" id="customerID" name="customerID" value="<%= medicine.customerID %>" required>
+        
+            <button type="submit">Update</button>
+        </form>
+        
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

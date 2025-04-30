@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Medical Store</title>
+    <link href="/styles/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="container">
+        <h1>Manage Medical Store</h1>
+        <form id="medicalStoreForm" action="/medicalStore" method="POST">
+            <!-- Medicine Details -->
+            <label for="medicineID">Medicine ID</label>
+            <input type="number" id="medicineID" name="medicineID" required>
+
+            <label for="medicineCode">Medicine Code</label>
+            <input type="text" id="medicineCode" name="medicineCode" required>
+
+            <label for="medicineName">Medicine Name</label>
+            <input type="text" id="medicineName" name="medicineName" required>
+
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" required>
+
+            <label for="medicineType">Medicine Type</label>
+            <input type="text" id="medicineType" name="medicineType" required>
+
+            <!-- Manufacturing Details -->
+            <label for="manufactureDate">Manufacture Date</label>
+            <input type="date" id="manufactureDate" name="manufactureDate" required>
+
+            <label for="expiryDate">Expiry Date</label>
+            <input type="date" id="expiryDate" name="expiryDate" required>
+
+            <label for="manufacturer">Manufactured By</label>
+            <input type="text" id="manufacturer" name="manufacturer" required>
+
+            <!-- Pricing and Ownership Details -->
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" step="0.01" required>
+
+            <label for="ownerID">Owner ID</label>
+            <input type="number" id="ownerID" name="ownerID" required>
+
+            <label for="employeeID">Employee ID</label>
+            <input type="number" id="employeeID" name="employeeID" required>
+
+            <label for="mID">Member ID</label>
+            <input type="number" id="mID" name="mID" required>
+
+            <label for="customerID">Customer ID</label>
+            <input type="number" id="customerID" name="customerID" required>
+
+            <button type="submit">Add Medicine</button>
+        </form>
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

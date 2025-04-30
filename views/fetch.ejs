@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Store Management - Data Viewer</title>
+    <link href="/styles/home.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    
+    <section class="features" id="features">
+        <div class="features-header">
+            <h2>Welcome,</h2>
+            <p>Manage and View Medical Store Information</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-box">
+                <a href="/data/medicines" class="btn">Medicines</a>
+            </div>
+            <div class="feature-box">
+                <a href="/data/owners" class="btn">Owners</a>
+            </div>
+            <div class="feature-box">
+                <a href="/data/employees" class="btn">Employees</a>
+            </div>
+            <div class="feature-box">
+                <a href="/data/members" class="btn">Members</a>
+            </div>
+            <div class="feature-box">
+                <a href="/data/bills" class="btn">Billing</a>
+            </div>
+        </div>
+
+</body>
+</html>

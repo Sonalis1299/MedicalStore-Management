@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Manage Owners</title>
+    <link href="/styles/styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="container">
+        <h1>Manage Owners</h1>
+        <form action="/owner" method="POST">
+            <label for="ownerID">Owner ID</label>
+            <input type="text" id="ownerID" name="ownerID" required>
+            
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" >
+            
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+            
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" id="contactNumber" name="contactNumber" required>
+            
+            <button type="submit">Add Owner</button>
+        </form>
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>

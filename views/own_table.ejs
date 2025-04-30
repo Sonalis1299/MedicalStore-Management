@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Owners Inventory</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/styles/home.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Owners Inventory</h2>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Owner ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Contact Number</th>
+                    <th>Deletion</th>
+                    <th>Updation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% owners.forEach(owner => { %>
+                    <tr>
+                        <td><%= owner.owner_id %></td>
+                        <td><%= owner.first_name %></td>
+                        <td><%= owner.last_name %></td>
+                        <td><%= owner.phone_number %></td>
+                        
+                        <td>
+                            <button type="button" class="btn btn-danger delete-btn" data-id="<%= owner.ownerID %>">Delete</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success edit-btn" data-id="<%= owner.ownerID %>">Edit</button>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Delete button functionality
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', async (event) => {
+                event.preventDefault(); // Prevent any default action
+                
+                const ownerID = button.getAttribute('data-id');
+
+                // Confirm the deletion
+                const confirmed = confirm(`Are you sure you want to delete Owner ID ${ownerID}?`);
+                if (!confirmed) return;
+
+                try {
+                    // Send AJAX request to delete the record
+                    const response = await fetch(`/owners/delete/${ownerID}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                    });
+
+                    if (response.ok) {
+                        // Remove the row from the table
+                        button.closest('tr').remove();
+                        alert('Owner deleted successfully!');
+                    } else {
+                        const errorData = await response.json();
+                        console.error('Error:', errorData.error);
+                        alert('Failed to delete the owner. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('AJAX Error:', error);
+                    alert('An error occurred while deleting the owner.');
+                }
+            });
+        });
+
+        // Edit button functionality
+        document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent any default action
+
+                const ownerID = button.getAttribute('data-id');
+
+                // Redirect to the edit page
+                window.location.href = `/owners/update/${ownerID}`;
+            });
+        });
+    });
+</script>
